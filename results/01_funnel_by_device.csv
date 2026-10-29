@@ -1,0 +1,5 @@
+device_group,s0_sessions,s1_view_item,s2_add_to_cart,s3_begin_checkout,s4_add_payment,s5_purchase,cr_session_to_view,cr_view_to_cart,cr_cart_to_checkout,cr_checkout_to_payment,cr_payment_to_purchase,cr_overall
+All devices,360129,77020,15173,5959,3858,2848,0.2139,0.197,0.3927,0.6474,0.7382,0.0079
+desktop,208942,44819,8780,3425,2196,1606,0.2145,0.1959,0.3901,0.6412,0.7313,0.0077
+mobile,143185,30501,6072,2404,1574,1180,0.213,0.1991,0.3959,0.6547,0.7497,0.0082
+tablet,8002,1700,321,130,88,62,0.2124,0.1888,0.405,0.6769,0.7045,0.0077
