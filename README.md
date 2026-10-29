@@ -1,4 +1,4 @@
-# GA4 E-commerce Funnel, Retention & North Star Analysis
+# Google Merchandise Store Product Analytics: Funnel, Retention & North Star (GA4, BigQuery)
 
 SQL analysis of Google Analytics 4 event data from the Google Merchandise Store, run in BigQuery.
 The project builds a session-level purchase funnel, checks it for tracking problems, re-runs it on a
