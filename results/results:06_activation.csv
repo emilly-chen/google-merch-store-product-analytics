@@ -1,0 +1,9 @@
+behavior,did_behavior,users,returned_users,return_rate
+added_to_cart,1,6960,1161,0.1668
+added_to_cart,0,125411,5108,0.0407
+purchased,1,1502,426,0.2836
+purchased,0,130869,5843,0.0446
+searched,1,6384,458,0.0717
+searched,0,125987,5811,0.0461
+viewed_3plus_items,1,10348,1784,0.1724
+viewed_3plus_items,0,122023,4485,0.0368

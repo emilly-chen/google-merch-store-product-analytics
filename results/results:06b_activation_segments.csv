@@ -1,0 +1,4 @@
+segment,users,share_of_users,returned_users,return_rate
+1_purchased,1502,0.0113,426,0.2836
+2_browsed_no_purchase,9040,0.0683,1385,0.1532
+3_neither,121829,0.9204,4458,0.0366

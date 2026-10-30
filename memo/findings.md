@@ -74,3 +74,29 @@
   Dec 21-Jan 18 $64.44. Wks Nov 9 and Jan 25 excluded (transaction_id coverage 58% / 30%).
 - Meaning: weekly purchasers doubled (364 -> 737) into the Dec peak while AOV held ~$71, so peak
   growth came from more buyers, not larger orders. Flat AOV does not rule out discounting.
+
+## 06 Activation (sql/06_activation.sql)
+- Question: Which first-week behaviors are associated with returning in weeks 1-3?
+- Cohorts Nov 30 - Jan 4 (132,371 new users; add_to_cart reliable; 3 full follow-up weeks).
+  Baseline return rate 4.7%.
+- First-week purchase: 1.1% of users; return 28.4% vs 4.5% (6.4x); 6.8% of returners.
+- 3+ item views: 7.8% of users; return 17.2% vs 3.7% (4.7x); 28.5% of returners.
+- Add to cart: 5.3% of users; 16.7% vs 4.1% (4.1x); 18.5% of returners.
+- Search: 4.8% of users; 7.2% vs 4.6% (1.6x); 7.3% of returners. All differences: 95% CI excludes 0.
+- Meaning: first-week purchase validates as activation (strongest association) but is too rare to
+  steer. 3+ item views is the best leading indicator: strong association and the largest reach.
+  Search is weakly associated (hypothesis: searchers who don't find items leave; check in adoption).
+- Caveats: associational, not causal (self-selection); behaviors overlap (purchasers also browse).
+- Open question: does browsing still predict return after excluding purchasers? (06b)
+
+## 06b Activation segments (sql/06b_activation_segments.sql)
+- Question: Does 3+ item browsing still predict return after excluding first-week purchasers?
+- Mutually exclusive segments (Nov 30 - Jan 4 cohorts, 132,371 users; checks match 06):
+  purchased 1.1% of users, return 28.4%, 6.8% of returners;
+  browsed 3+ items, no purchase 6.8% of users, return 15.3%, 22.1% of returners;
+  neither 92.0% of users, return 3.7%.
+- browsed_no_purchase vs neither: 4.2x (diff 11.7 pts, 95% CI 10.9-12.4).
+- Meaning: the browsing signal is not driven by purchasers. Proposed leading indicator for activation:
+  3+ item views in the first week. Next: test with an experiment (e.g. stronger recommendations).
+- Caveats: associational (more interested users browse more and return more); the 3-item threshold is
+  arbitrary; test 1/2/3/5/10 to find where return rate jumps.
