@@ -100,3 +100,33 @@
   3+ item views in the first week. Next: test with an experiment (e.g. stronger recommendations).
 - Caveats: associational (more interested users browse more and return more); the 3-item threshold is
   arbitrary; test 1/2/3/5/10 to find where return rate jumps.
+
+## 07a Event inventory (sql/07a_event_inventory.sql)
+- Search: view_search_results 26,172 events -> enough for adoption/success analysis.
+- Promotions: view_promotion 190,104; select_promotion 9,450 (~5.0% event-level click rate, rough).
+- select_item 31,007 exists, but view_item_list only 71 -> check items.item_list_name/index (07b).
+- first_visit 257,462: can identify truly new users and fix left-censoring in the cohort analysis (04).
+- purchase events 5,692 vs 4,848 purchase sessions: consistent with duplicate purchase events (05).
+- add_shipping_info (19,722) sits between begin_checkout and add_payment_info; not in our funnel yet.
+
+## 07b select_item list and position (sql/07b_select_item_lists.sql)
+- Question: Can we measure which list (e.g. search results) a click came from and its position?
+- item_list_name is only placeholders ("(not set)", "Not available in demo dataset").
+- item_list_index is not the clicked position: ~10.6 items per select_item event
+  (329,339 unnested rows in the top 50 groups vs 31,007 events), and positions 2-12 are almost
+  evenly distributed (~20K each), unlike real click behavior that concentrates at the top.
+- Decision: cannot measure "clicked a top-3 search result". Proxy for search success:
+  view_item after view_search_results in the same session (event_timestamp order).
+- Tracking recommendation: record list source and clicked position on select_item.
+
+## 07c Search adoption (sql/07c_search_adoption.sql)
+- Adoption: 15,719 of 360,129 sessions searched (4.4%).
+- Success (view_item after first search in session): 6,791 (43.2%); 8,928 search sessions (56.8%)
+  ended without viewing any item.
+- Outcome (session purchase rate): no search 1.22%; search 4.14%; successful search 8.88%;
+  failed search 0.54% (16x gap, diff 95% CI 7.6-9.0 pts). Failed searchers buy less than non-searchers.
+- Meaning: explains the weak search-return link in 06 (most searches fail). Opportunity: improve
+  search success. Illustrative upper bound: +10 pts success -> ~1,572 more successful sessions ->
+  ~131 orders -> ~$9.1K over 3 months at $69.68 AOV (assumes causality; validate with an A/B test).
+- Limitations: session-level success; proxy for search quality (no click position, no search terms
+  available); associational only.
