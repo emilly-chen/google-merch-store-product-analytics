@@ -143,3 +143,11 @@
   success is the stronger opportunity.
 - Data quality: only 15 sessions clicked a promotion without a tracked view; tracking is consistent.
 - Limitations: session-level; promotion names/creatives not analyzed; associational only.
+
+## 08 RICE prioritization (memo/08_rice_prioritization.md)
+- Five opportunities sized under a +10% relative improvement scenario and scored with RICE.
+- Recommended order: (0) fix tracking gaps as a prerequisite; (1) reduce cart -> checkout
+  drop-off (~+378 orders, ~$26K/quarter); (2) A/B test recommendations for new visitors
+  (highest RICE, revenue not sized); (3) fix failed searches; (4) re-engage December cohorts.
+  Promotion click-through deprioritized (no click-to-purchase link).
+- Effort figures are assumptions; all relationships are associational.
