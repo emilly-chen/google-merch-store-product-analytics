@@ -130,3 +130,16 @@
   ~131 orders -> ~$9.1K over 3 months at $69.68 AOV (assumes causality; validate with an A/B test).
 - Limitations: session-level success; proxy for search quality (no click position, no search terms
   available); associational only.
+
+## 07d Promotion adoption (sql/07d_promotion_adoption.sql)
+- Adoption: 128,447 of 360,129 sessions saw a promotion (35.7%), 8x search adoption.
+- Success (select_promotion after first view_promotion): 7,377 sessions (5.7% click rate).
+- Outcome: purchase rate no promo view 0.27%; promo view 3.29%; promo click 3.47%;
+  promo view without click 3.28%. Click vs no-click difference 0.19 pts, not significant
+  (95% CI -0.24 to +0.62 pts).
+- Meaning: clicking a promotion is not associated with buying more. The 12x gap between seeing
+  and not seeing a promotion is likely selection bias: sessions that never see a promotion are
+  mostly single-page landings that rarely buy. Promotion CTR is a low-priority lever; search
+  success is the stronger opportunity.
+- Data quality: only 15 sessions clicked a promotion without a tracked view; tracking is consistent.
+- Limitations: session-level; promotion names/creatives not analyzed; associational only.
